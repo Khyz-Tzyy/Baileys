@@ -67,12 +67,12 @@ const {
 const KhyzModss = makeWASocket({
   browser: ['Ubuntu', 'Chrome', '20.00.1'],
   printQRInTerminal: false,
-  version: fetchLatestWAWebVersion()
+  version: (await fetchLatestWAWebVersion()).version
   // Other options
 });
 
 const number = "628XXXXX";
-const code = await KhyzModss.requestPairingCode(number.trim) /* Use : (number, "YYYYYYYY") for custom-pairing */
+const code = await KhyzModss.requestPairingCode(number.trim()) /* Use : (number, "YYYYYYYY") for custom-pairing */
 
 console.log("Ur pairing code : " + code)
 ```
